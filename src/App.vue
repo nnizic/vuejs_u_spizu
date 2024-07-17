@@ -1,10 +1,44 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+      <img
+        src="@/assets/logo.png"
+        height="40"
+        class="d-inline-block align-top"
+        alt="logo"
+        loading="lazy"
+      />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler"
+        aria-controls="navbarToggler"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Početna</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/login" class="nav-link">Prijava</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/signup" class="nav-link"
+              >Registracija</router-link
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
-    <router-view />
+
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
