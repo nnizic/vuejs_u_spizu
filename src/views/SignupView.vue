@@ -62,15 +62,21 @@ export default {
   },
   methods: {
     signup() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.username, this.password)
-        .then(function () {
-          alert("Uspješna registracija");
-        })
-        .catch(function (error) {
-          alert("Došlo je do greške ", error);
-        });
+      if (this.password == this.passwordRepeat) {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.username, this.password)
+          .then(function () {
+            alert("Uspješna registracija");
+          })
+          .catch(function (error) {
+            alert("Došlo je do greške ", error);
+          });
+      } else {
+        this.password = "";
+        this.passwordRepeat = "";
+        alert("Zaporke se ne podudaraju!");
+      }
     },
   },
 };
