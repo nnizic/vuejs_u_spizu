@@ -56,7 +56,6 @@ export default {
         .signInWithEmailAndPassword(this.username, this.password)
         .then((result) => {
           console.log("Prijava uspješna ", result);
-          this.$router.replace({ name: "dashboard" });
         })
         .catch(function (e) {
           alert("Greška:", e);

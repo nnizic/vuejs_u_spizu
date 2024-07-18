@@ -23,9 +23,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Početna</router-link>
-          </li>
           <li class="nav-item" v-if="store.currentUser">
             <router-link to="/dashboard" class="nav-link">Kupovina</router-link>
           </li>
@@ -86,9 +83,19 @@ import router from "@/router";
 import store from "@/store";
 
 firebase.auth().onAuthStateChanged((user) => {
-  console.log("***", user.email);
   if (user) {
     store.currentUser = user.email;
+
+    if (!router.currentRoute.meta.needsUser) {
+      router.push({ name: "dashboard" });
+    }
+  } else {
+    // Korisnik nije ulogiran
+    store.currentUser = null;
+
+    if (router.currentRoute.meta.needsUser) {
+      router.push({ name: "home" });
+    }
   }
 });
 export default {
