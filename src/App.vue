@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
-      <router-link to="/">
+      <router-link to="/" @click.native.capture="disableRoute">
         <img
-          v-if="router.currentRoute.path != '/'"
+          v-if="showBike()"
           src="@/assets/logo.png"
           height="40"
           class="d-inline-block align-top"
@@ -94,7 +94,7 @@ firebase.auth().onAuthStateChanged((user) => {
     store.currentUser = null;
 
     if (router.currentRoute.meta.needsUser) {
-      router.push({ name: "home" });
+      router.push({ name: "login" });
     }
   }
 });
@@ -114,6 +114,18 @@ export default {
         .then(() => {
           this.$router.push({ name: "home" });
         });
+    },
+
+    showBike() {
+      if (router.currentRoute.path != "/") {
+        return true;
+      }
+      return false;
+    },
+    disableRoute() {
+      if (store.currentUser != null) {
+        event.stopPropagation();
+      }
     },
   },
 };

@@ -55,7 +55,7 @@ router.beforeEach((to, from, next) => {
   const noUser = store.currentUser === null;
 
   if (noUser && to.meta.needsUser) {
-    next("/");
+    next("login");
   } else {
     next();
   }
