@@ -6,4 +6,5 @@ import firebaseConfig from "@/firebaseconfig";
 let firebaseconfig = firebaseConfig.firebaseConfig;
 firebase.initializeApp(firebaseconfig);
 
-export { firebase };
+let db = firebase.firestore();
+export { firebase, db };

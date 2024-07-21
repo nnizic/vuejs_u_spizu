@@ -43,6 +43,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "dashboard" */ "../views/DashboardView.vue"),
   },
+  {
+    path: "/newshoplist",
+    name: "newshoplist",
+    meta: {
+      needsUser: true,
+    },
+    // route level code-splitting
+    // this generates a separate chunk (login.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "dashboard" */ "../views/NewShopList.vue"),
+  },
 ];
 
 const router = new VueRouter({
