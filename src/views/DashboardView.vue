@@ -6,6 +6,11 @@
         >Nova Kupovina</router-link
       >
     </h3>
+    <h3>
+      <router-link to="/archiveshoplist" class="nav-link"
+        >Povijest Kupovina</router-link
+      >
+    </h3>
   </div>
 </template>
 
