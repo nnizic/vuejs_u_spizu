@@ -1,15 +1,12 @@
 <template>
   <div>
-    <div v-for="(shopItem, i) in shlists" :key="i">
-      <h3>
-        {{ shopItem.name }} <small>{{ shopItem.fromNow }}</small>
-      </h3>
-    </div>
+    <sh-list-card v-for="(shopitem, i) in shlists" :key="i" :lista="shopitem" />
   </div>
 </template>
 
 <script>
 import store from "@/store";
+import ShListCard from "@/components/ShListCard.vue";
 import { db } from "@/firebase";
 import moment from "moment";
 
@@ -49,12 +46,10 @@ export default {
         });
     },
   },
+  components: {
+    ShListCard,
+  },
 };
 </script>
 
-<style>
-h3 small {
-  color: blue;
-  font-size: 0.5em;
-}
-</style>
+<style></style>
