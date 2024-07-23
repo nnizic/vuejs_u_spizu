@@ -1,14 +1,17 @@
 <template>
   <div>
-    <h3 v-for="(shopItem, i) in shlists" :key="i">
-      {{ shopItem.name }} - {{ shopItem.time }}
-    </h3>
+    <div v-for="(shopItem, i) in shlists" :key="i">
+      <h3>
+        {{ shopItem.name }} <small>{{ shopItem.fromNow }}</small>
+      </h3>
+    </div>
   </div>
 </template>
 
 <script>
 import store from "@/store";
 import { db } from "@/firebase";
+import moment from "moment";
 
 export default {
   name: "archiveList",
@@ -35,6 +38,7 @@ export default {
               this.shlists.push({
                 name: data.name,
                 time: data.posted_at,
+                fromNow: moment(data.posted_at).fromNow(),
                 items: data.items,
               });
             }
@@ -48,4 +52,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+h3 small {
+  color: blue;
+  font-size: 0.5em;
+}
+</style>
