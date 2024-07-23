@@ -38,7 +38,7 @@ export default {
               this.shlists.push({
                 name: data.name,
                 time: data.posted_at,
-                fromNow: moment(data.posted_at).fromNow(),
+                fromNow: moment(data.posted_at).locale("hr").fromNow(),
                 items: data.items,
               });
             }
