@@ -1,14 +1,12 @@
 <template>
   <div class="dashboard">
-    <h2>Lista za kupovinu</h2>
+    <h2>U spizu!</h2>
     <h3>
-      <router-link to="/newshoplist" class="nav-link"
-        >Nova Kupovina</router-link
-      >
+      <router-link to="/newshoplist" class="nav-link">Nova Spiza</router-link>
     </h3>
     <h3>
       <router-link to="/archiveshoplist" class="nav-link"
-        >Povijest Kupovina</router-link
+        >Lista Spiza</router-link
       >
     </h3>
   </div>

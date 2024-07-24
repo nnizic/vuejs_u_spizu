@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item" v-if="store.currentUser">
-            <router-link to="/dashboard" class="nav-link">Kupovina</router-link>
+            <router-link to="/dashboard" class="nav-link">U spizu!</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/login" v-if="!store.currentUser" class="nav-link"

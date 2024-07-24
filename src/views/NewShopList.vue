@@ -72,6 +72,7 @@ export default {
           items: shListItems,
           email: store.currentUser,
           posted_at: Date.now(),
+          active: true,
         })
         .then((doc) => {
           console.log("Spremljeno", doc);
