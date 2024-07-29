@@ -70,6 +70,7 @@ export default {
             const data = doc.data();
             if (doc.id.includes(this.store.currentUser)) {
               this.shlists.push({
+                id: doc.id,
                 name: data.name,
                 time: data.posted_at,
                 fromNow: moment(data.posted_at).locale("hr").fromNow(),
